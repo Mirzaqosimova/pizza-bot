@@ -1,14 +1,24 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { BotModule } from './bot/bot.module';
-import { TestResultsModule } from './test_results/test_results.module';
 import { TestResultsModule } from './test-results/test-results.module';
-
+import { TelegrafModule } from 'nestjs-telegraf';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 @Module({
-  imports: [UsersModule, BotModule, TestResultsModule],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    TelegrafModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: (configService: ConfigService) => ({
+        token: configService.get('BOT_TOKEN'),
+      }),
+      inject: [ConfigService],
+    }),
+    UsersModule,
+    BotModule,
+    TestResultsModule,
+  ],
 })
 export class AppModule {}
