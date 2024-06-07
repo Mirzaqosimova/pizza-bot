@@ -12,14 +12,14 @@ export class UsersRepository {
     full_name: string;
     bot_user_status: BotStatus;
   }) {
-    return this.getBuilder().insert(data);
+    return this.getBuilder().insert(data).returning('id');
   }
   findBy(param: { bot_user_id: string }) {
     return this.getBuilder().where(param).first();
   }
 
   update(id: any, data: { full_name?: string; bot_user_status: BotStatus }) {
-    return this.getBuilder().where({ id }).update(data);
+    return this.getBuilder().where({ id }).update(data).returning('id');
   }
 
   updateByBotUserId(

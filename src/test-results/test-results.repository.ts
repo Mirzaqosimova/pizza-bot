@@ -9,12 +9,15 @@ export class TestResultsRepository {
   }
 
   create(data: { user_id: any; results: CreateTestResultDto }) {
-    return this.getBuilder().insert(data);
+    return this.getBuilder().insert(data).returning('id');
   }
   findAll(bot_user_id: string) {
-    return this.getBuilder().select('*').where({ bot_user_id });
+    return this.getBuilder()
+      .select('test_results.results', 'test_results.created_at')
+      .innerJoin('users', { 'users.id': 'test_results.user_id' })
+      .where({ 'users.bot_user_id': bot_user_id });
   }
   delete(id: number) {
-    return this.getBuilder().where({ id }).del();
+    return this.getBuilder().where({ id }).del().returning('id');
   }
 }

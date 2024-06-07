@@ -9,14 +9,14 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
   const configService = app.get(ConfigService);
   const config = new DocumentBuilder()
-    .setTitle('Mentalaba-CRM API Documentation')
-    .setDescription('Mentalaba-CRM API Documentation')
+    .setTitle('Lobbyist team API Documentation')
+    .setDescription('Lobbyist team API Documentation')
     .addBearerAuth()
     .setVersion('1.0')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
-  await app.listen(configService.get<number>('port'));
+  await app.listen(configService.get<number>('PORT'));
 }
 bootstrap();
