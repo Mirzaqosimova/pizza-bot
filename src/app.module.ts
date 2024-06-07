@@ -4,10 +4,15 @@ import { BotModule } from './bot/bot.module';
 import { TestResultsModule } from './test-results/test-results.module';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { KnexModule } from 'nestjs-knex';
+import { DatabaseConfig } from './shared/database';
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
+    }),
+    KnexModule.forRootAsync({
+      useClass: DatabaseConfig,
     }),
     TelegrafModule.forRootAsync({
       imports: [ConfigModule],
