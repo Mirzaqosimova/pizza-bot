@@ -17,6 +17,9 @@ export class DatabaseConfig implements KnexModuleOptionsFactory {
           password: this.configService.get('DB_PASSWORD'),
           database: this.configService.get('DB_NAME'),
         },
+        ssl: {
+          rejectUnauthorized: false,
+        },
       },
     } as KnexModuleOptions;
   }
