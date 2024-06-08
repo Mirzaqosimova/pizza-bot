@@ -94,7 +94,7 @@ export class BotService {
             {
               text: 'Test ishlash',
               web_app: {
-                url: 'https://www.influxdata.com/time-series-platform/telegraf/',
+                url: 'https://test-task-uz.netlify.app/' + ctx.from.id,
               },
             },
           ],
