@@ -77,7 +77,6 @@ export class BotService {
     const hasUser = await this.usersRepository.findBy({
       bot_user_id: String(ctx.from.id),
     });
-    console.log(hasUser);
     if (hasUser.bot_user_status === BotStatus.ENTER_NAME) {
       await this.usersRepository.updateByBotUserId(String(ctx.from.id), {
         bot_user_status: BotStatus.SEND_TEST_URL,
