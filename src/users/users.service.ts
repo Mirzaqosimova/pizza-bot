@@ -15,8 +15,8 @@ export class UsersService {
     return `This action returns all users`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(bot_user_id: string) {
+    return this.usersRepository.findBy({ bot_user_id });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
