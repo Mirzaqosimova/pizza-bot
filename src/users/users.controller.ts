@@ -8,7 +8,7 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get(':bot_user_id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('bot_user_id') id: string) {
     return this.usersService.findOne(id);
   }
 }
