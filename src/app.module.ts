@@ -18,6 +18,12 @@ import { DatabaseConfig } from './shared/database';
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({
         token: configService.get('BOT_TOKEN'),
+        launchOptions: {
+          webhook: {
+            domain: configService.get('BASE_URL'),
+            path: '/bot',
+          },
+        },
       }),
       inject: [ConfigService],
     }),
