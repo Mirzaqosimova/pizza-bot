@@ -9,6 +9,6 @@ export class UsersController {
 
   @Get(':bot_user_id')
   findOne(@Param('id') id: string) {
-    return 'hello';
+    return this.usersService.findOne(id);
   }
 }
