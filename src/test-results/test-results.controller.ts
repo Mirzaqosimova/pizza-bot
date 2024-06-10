@@ -29,9 +29,4 @@ export class TestResultsController {
   findAll(@Param('bot_user_id', ParseIntPipe) bot_user_id: string) {
     return this.testResultsService.findAll(bot_user_id);
   }
-
-  @Delete(':bot_user_id/:id')
-  remove(@Param('id', ParseIntPipe) id: number) {
-    return this.testResultsService.remove(+id);
-  }
 }

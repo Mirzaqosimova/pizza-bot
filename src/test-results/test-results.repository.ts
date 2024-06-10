@@ -13,11 +13,19 @@ export class TestResultsRepository {
   }
   findAll(bot_user_id: string) {
     return this.getBuilder()
-      .select('test_results.results', 'test_results.created_at')
+      .select(
+        'test_results.id',
+        'test_results.results',
+        'test_results.created_at',
+      )
       .innerJoin('users', { 'users.id': 'test_results.user_id' })
       .where({ 'users.bot_user_id': bot_user_id });
   }
-  delete(id: number) {
-    return this.getBuilder().where({ id }).del().returning('id');
+  delete(user_id: number, ids: number[]) {
+    return this.getBuilder()
+      .where({ user_id })
+      .whereNotIn('id', ids)
+      .del()
+      .returning('id');
   }
 }

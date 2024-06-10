@@ -14,6 +14,12 @@ export class TestResultsService {
     if (!hasUser) {
       throw new NotFoundException('Foydalanuvchi topilmadi');
     }
+    const hasTest = await this.testResultsRepository.findAll(bot_user_id);
+    if (hasTest.length >= 3) {
+      const sortedArray = hasTest.sort((a, b) => b.id - a.id);
+      const topTwoIds = sortedArray.slice(0, 2).map((item) => item.id);
+      await this.testResultsRepository.delete(hasUser.id, topTwoIds);
+    }
     return this.testResultsRepository.create({
       user_id: hasUser.id,
       results: payload,
@@ -22,9 +28,5 @@ export class TestResultsService {
 
   findAll(bot_user_id: string) {
     return this.testResultsRepository.findAll(bot_user_id);
-  }
-
-  remove(id: number) {
-    return this.testResultsRepository.delete(id);
   }
 }
