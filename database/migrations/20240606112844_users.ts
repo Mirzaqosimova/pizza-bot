@@ -6,7 +6,9 @@ export async function up(knex: Knex): Promise<void> {
     table.string('bot_user_id').notNullable();
     table.string('bot_user_status').notNullable();
     table.string('full_name').notNullable();
-    table.string('phone').nullable();
+    table.string('phone').notNullable();
+    table.string('business').notNullable();
+    table.date('birth_date').notNullable();
     table.date('created_at').defaultTo(knex.fn.now());
   });
 }

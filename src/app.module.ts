@@ -6,6 +6,7 @@ import { TelegrafModule } from 'nestjs-telegraf';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { KnexModule } from 'nestjs-knex';
 import { DatabaseConfig } from './shared/database';
+import { session } from 'telegraf';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,6 +25,7 @@ import { DatabaseConfig } from './shared/database';
             path: '/bot',
           },
         },
+        middlewares: [session()],
       }),
       inject: [ConfigService],
     }),
