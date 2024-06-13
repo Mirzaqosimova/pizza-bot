@@ -6,7 +6,11 @@ import { TelegrafModule } from 'nestjs-telegraf';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { KnexModule } from 'nestjs-knex';
 import { DatabaseConfig } from './shared/database';
-import { session } from 'telegraf';
+import { Middleware, session } from 'telegraf';
+import { join } from 'path';
+import { ServeStaticModule } from '@nestjs/serve-static';
+
+import { cwd } from 'process';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -14,6 +18,9 @@ import { session } from 'telegraf';
     }),
     KnexModule.forRootAsync({
       useClass: DatabaseConfig,
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(cwd(), 'assets', 'files'),
     }),
     TelegrafModule.forRootAsync({
       imports: [ConfigModule],
