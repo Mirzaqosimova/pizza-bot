@@ -1,3 +1,4 @@
+import { TestResultsRepository } from './../test-results/test-results.repository';
 import {
   BotStatus,
   BotStatusType,
@@ -17,25 +18,28 @@ import * as fs from 'fs';
 @Update()
 @Injectable()
 export class BotService {
-  constructor(private readonly usersRepository: UsersRepository) {}
+  constructor(
+    private readonly usersRepository: UsersRepository,
+    private readonly testResultsRepository: TestResultsRepository,
+  ) {}
 
   @Start()
   async start(@Ctx() ctx: MyContext) {
-    const result = {
-      personal_growth: 3,
-      family: 3,
-      friends_around: 3,
-      value: 3,
-      financial_stability: 3,
-      hobby_and_interests: 3,
-      sport_health: 3,
-      career: 3,
-    };
-    await this.updateFile(result);
-    await ctx.replyWithDocument({
-      source: 'updated_example.pdf',
-      filename: 'updated_example.pdf',
-    });
+    // const result = {
+    //   personal_growth: 3,
+    //   family: 3,
+    //   friends_around: 3,
+    //   value: 3,
+    //   financial_stability: 3,
+    //   hobby_and_interests: 3,
+    //   sport_health: 3,
+    //   career: 3,
+    // };
+    // await this.updateFile(result);
+    // await ctx.replyWithDocument({
+    //   source: 'updated_example.pdf',
+    //   filename: 'updated_example.pdf',
+    // });
     await this.checkSession(ctx);
   }
   async checkSession(ctx: MyContext) {
@@ -45,6 +49,7 @@ export class BotService {
 
     if (hasUser) {
       ctx.session.status = BotStatus.MENU;
+      ctx.session.user_id = hasUser.id;
       await this.usersRepository.updateByBotUserId(ctx.from.id, {
         bot_user_status: BotStatus.MENU,
       });
@@ -102,7 +107,6 @@ export class BotService {
           ? (ctx.session[res[1]] = ctx.session[res[1]] + Number(res[2]))
           : (ctx.session[res[1]] = Number(res[2]));
         if (newTest.category !== res[1]) {
-          console.log(newTest.category, res[1]);
           let progress: string = '';
           let text: string = '';
           switch (newTest.category) {
@@ -144,16 +148,18 @@ export class BotService {
           }
           setTimeout(async () => {
             await ctx.reply(progress);
-          }, 3000);
+          }, 2000);
           setTimeout(async () => {
             await ctx.reply(text);
-          }, 3200);
-          await this.startKolesoTest(ctx, Number(res[0]) + 1, 4000);
+          }, 2200);
+          await this.startKolesoTest(ctx, Number(res[0]) + 1, 3000);
         } else {
           await this.startKolesoTest(ctx, Number(res[0]) + 1);
         }
       } else {
-        console.log(ctx.session);
+        ctx.session[res[1]]
+          ? (ctx.session[res[1]] = ctx.session[res[1]] + Number(res[2]))
+          : (ctx.session[res[1]] = Number(res[2]));
 
         const result = {
           personal_growth: ctx.session['personal_growth'] / 10,
@@ -166,11 +172,27 @@ export class BotService {
           career: ctx.session['career'] / 9,
         };
         await this.updateFile(result);
-        await ctx.replyWithDocument({
-          source: 'updated_example.pdf',
-          filename: 'updated_example.pdf',
+        await this.testResultsRepository.create({
+          user_id: ctx.session.user_id,
+          results: result,
         });
-        await ctx.reply('tugadi', this.getButtons(BotStatus.MENU));
+        // await ctx.replyWithDocument({
+        //   source: 'updated_example.pdf',
+        //   filename: 'updated_example.pdf',
+        // });
+        await ctx.reply(
+          `
+          \nPersonal Growth: ${result.personal_growth},
+          \nFamily: ${result.family},
+          \nFriends Around: ${result.friends_around},
+          \nValue: ${result.value},
+          \nFinancial Stability: ${result.financial_stability},
+          \nHobby and Interests: ${result.hobby_and_interests},
+          \nSport and Health: ${result.sport_health},
+          \nCareer: ${result.career}
+`,
+          this.getButtons(BotStatus.MENU),
+        );
       }
     }
   }
@@ -178,7 +200,7 @@ export class BotService {
   async updateFile(result: any) {
     const pdfFileName = 'test_koleso.pdf';
     const cwd = process.cwd();
-    const pdfFilePath = join(__dirname, './pdf', pdfFileName);
+    const pdfFilePath = join(cwd, 'src/bot/pdf', pdfFileName);
     // Read the existing PDF file
     const existingPdfBuffer = fs.readFileSync(pdfFilePath);
 
@@ -243,19 +265,22 @@ export class BotService {
         return;
       }
       case BotStatus.ENTER_BUSINESS: {
-        (ctx.session.status = BotStatus.MENU),
-          await this.usersRepository.create({
-            bot_user_id: ctx.from.id,
-            full_name: ctx.session.full_name,
-            phone: ctx.session.phone,
-            birth_date: ctx.session.birth_date,
-            business: message,
-            bot_user_status: BotStatus.MENU,
-          });
+        ctx.session.status = BotStatus.MENU;
+        const [resp] = await this.usersRepository.create({
+          bot_user_id: ctx.from.id,
+          full_name: ctx.session.full_name,
+          phone: ctx.session.phone,
+          birth_date: ctx.session.birth_date,
+          business: message,
+          bot_user_status: BotStatus.MENU,
+        });
+        ctx.session.user_id = resp.id;
+
         await ctx.reply(MessageText.WELCOME, this.getButtons(BotStatus.MENU));
         return;
       }
       case BotStatus.TEST.KOLESO: {
+        console.log(ctx.session);
         if (!ctx.session['koleso']) {
           return;
         }
@@ -292,8 +317,8 @@ export class BotService {
     }
     switch (message) {
       case KeyboardText.TEST_KOLESO: {
-        const { status, ...rest } = ctx.session;
-        ctx.session = { status: BotStatus.TEST.KOLESO };
+        const { status, user_id, ...rest } = ctx.session;
+        ctx.session = { status: BotStatus.TEST.KOLESO, user_id };
         return this.startKolesoTest(ctx, 0);
       }
     }

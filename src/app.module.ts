@@ -19,9 +19,7 @@ import { cwd } from 'process';
     KnexModule.forRootAsync({
       useClass: DatabaseConfig,
     }),
-    ServeStaticModule.forRoot({
-      rootPath: join(cwd(), 'assets', 'files'),
-    }),
+   
     TelegrafModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => ({

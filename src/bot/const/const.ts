@@ -28,7 +28,7 @@ export const KeyboardText = {
 };
 
 export const MessageText = {
-  WELCOME: 'Site ga hush keldingiz ',
+  WELCOME: 'Botga ga hush keldingiz, \nMenulardan birini tanlang: ',
   CHOOSE_MENU: 'Menulardan birini tanlang: ',
   MEETING:
     'Assalomu alaykum foydalanuchi, bu botda siz test ishlashingiz mumkin',
