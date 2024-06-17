@@ -10,6 +10,7 @@ export const BotStatus = {
   MENU: 'MENU',
   TEST: {
     KOLESO: 'TEST_KOLESO',
+    BN: 'TEST_BN',
   },
 };
 

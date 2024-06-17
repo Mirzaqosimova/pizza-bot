@@ -9,16 +9,8 @@ export async function up(knex: Knex): Promise<void> {
       .onDelete('cascade')
       .notNullable()
       .index();
-    table.jsonb('results').defaultTo({
-      family: 0,
-      value: 0,
-      hobby_and_interests: 0,
-      career: 0,
-      financial_stability: 0,
-      personal_growth: 0,
-      sport_health: 0,
-      friends_around: 0,
-    });
+    table.jsonb('result_koleso').nullable();
+    table.specificType('result_bn', 'jsonb[]').nullable();
     table.date('created_at').defaultTo(knex.fn.now());
   });
 }

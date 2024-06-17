@@ -22,7 +22,7 @@ export class TestResultsService {
     }
     return this.testResultsRepository.create({
       user_id: hasUser.id,
-      results: payload,
+      result_bn: payload,
     });
   }
 

@@ -11,9 +11,16 @@ import { UsersRepository } from 'src/users/users.repository';
 import { CallBackData } from './const/callback-datas';
 import { Message } from 'telegraf/typings/core/types/typegram';
 import { MyContext } from './const/my-context';
-import { KolesoCategories, TestKoleso, TestType } from './const/test';
+import { KolesoCategories, TestKoleso, TestType } from './const/test-koleso';
 import path, { join } from 'path';
 import * as fs from 'fs';
+import {
+  Reck,
+  StickerBn,
+  TestBn,
+  TestBnCategory,
+  TestBnType,
+} from './const/test-bn';
 
 @Update()
 @Injectable()
@@ -82,16 +89,20 @@ export class BotService {
 
   @On('callback_query')
   async onNotMyName(@Ctx() ctx: MyContext) {
-    await ctx.answerCbQuery();
-    await ctx.editMessageReplyMarkup(null);
     const callbackData = (ctx.callbackQuery as any).data;
     switch (callbackData) {
       case CallBackData.NOT_MY_NAME: {
+        if (ctx.callbackQuery.message) {
+          await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+        }
         ctx.session.status = BotStatus.ENTER_NAME;
         await ctx.reply(MessageText.SEND_NAME);
         break;
       }
       case CallBackData.YES_MY_NAME: {
+        if (ctx.callbackQuery.message) {
+          await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+        }
         ctx.session.status = BotStatus.ENTER__CONTACT;
         await ctx.reply(
           MessageText.SEND_CONTACT,
@@ -100,6 +111,8 @@ export class BotService {
       }
     }
     if (ctx.session.status === BotStatus.TEST.KOLESO) {
+      await ctx.answerCbQuery();
+      await ctx.editMessageReplyMarkup(null);
       const res = callbackData.split('|'); //0 is index of test, 1 is category, 2 is ball
       const newTest = TestKoleso[Number(res[0]) + 1];
       if (newTest) {
@@ -174,12 +187,16 @@ export class BotService {
         await this.updateFile(result);
         await this.testResultsRepository.create({
           user_id: ctx.session.user_id,
-          results: result,
+          result_koleso: result,
         });
         // await ctx.replyWithDocument({
         //   source: 'updated_example.pdf',
         //   filename: 'updated_example.pdf',
         // });
+        ctx.session.status = BotStatus.MENU;
+        await this.usersRepository.updateByBotUserId(ctx.from.id, {
+          bot_user_status: BotStatus.MENU,
+        });
         await ctx.reply(
           `
           \nPersonal Growth: ${result.personal_growth},
@@ -189,12 +206,177 @@ export class BotService {
           \nFinancial Stability: ${result.financial_stability},
           \nHobby and Interests: ${result.hobby_and_interests},
           \nSport and Health: ${result.sport_health},
-          \nCareer: ${result.career}
-`,
+          \nCareer: ${result.career}`,
           this.getButtons(BotStatus.MENU),
         );
       }
+    } else if (ctx.session.status === BotStatus.TEST.BN) {
+      if (ctx.callbackQuery.message) {
+        await ctx.deleteMessage(ctx.callbackQuery.message.message_id);
+      }
+      const res = callbackData.split('|'); //0-index of test, 1- category, 2-ball, 3-type feature or now
+
+      if (res[3] === TestBnType.NOW) {
+        ctx.session['first_ball'] = Number(res[2]);
+        return this.startBnTest(ctx, res[0], TestBnType.FEATURE, 50);
+      } else {
+        const average_ball = (ctx.session['first_ball'] + Number(res[2])) / 2;
+        const test = TestBn[Number(res[0])];
+        ctx.session.tes_bn.push({
+          no: test.no,
+          category: test.category,
+          average_ball,
+        });
+
+        const newTest = TestBn[Number(res[0]) + 1];
+        if (newTest) {
+          if (newTest.category === test.category) {
+            return this.startBnTest(
+              ctx,
+              Number(res[0]) + 1,
+              TestBnType.NOW,
+              // 50,
+            );
+          } else {
+            switch (newTest.category) {
+              case TestBnCategory.SOFT_SKILLS: {
+                await ctx.reply(Reck.TEST_NB.FIRST_BLOG[1]);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.FIRST_BLOG[2]);
+                }, 5000);
+                const res = this.sumByCategory(ctx.session.tes_bn);
+                console.log(
+                  Math.floor(res[TestBnCategory.BUSINESS] / 80),
+                  Math.floor(res[TestBnCategory.BUSINESS] / 8),
+                );
+                const sticker =
+                  StickerBn[Math.floor(res[TestBnCategory.BUSINESS] / 80)];
+                const result =
+                  sticker +
+                  '\n100% dan ' +
+                  Math.floor(res[TestBnCategory.BUSINESS] / 8) +
+                  '%';
+                setTimeout(async () => {
+                  await ctx.reply(result);
+                }, 18000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.FIRST_BLOG[3]);
+                }, 19000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.FIRST_BLOG[4]);
+                }, 32000);
+                break;
+              }
+              case TestBnCategory.THINK: {
+                await ctx.reply(Reck.TEST_NB.SECOND_BLOG[1]);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.SECOND_BLOG[2]);
+                }, 5000);
+                const res = this.sumByCategory(ctx.session.tes_bn);
+                const sticker =
+                  StickerBn[Math.floor(res[TestBnCategory.SOFT_SKILLS] / 80)];
+                const result =
+                  sticker +
+                  '\n100% dan ' +
+                  Math.floor(res[TestBnCategory.SOFT_SKILLS] / 8) +
+                  '%';
+                setTimeout(async () => {
+                  await ctx.reply(result);
+                }, 18000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.SECOND_BLOG[3]);
+                }, 19000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.SECOND_BLOG[4]);
+                }, 32000);
+                break;
+              }
+              case TestBnCategory.ENERGY: {
+                await ctx.reply(Reck.TEST_NB.THIRD_BLOG[1]);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.THIRD_BLOG[2]);
+                }, 5000);
+                const res = this.sumByCategory(ctx.session.tes_bn);
+
+                const sticker =
+                  StickerBn[Math.floor(res[TestBnCategory.THINK] / 80)];
+                const result =
+                  sticker +
+                  '\n100% dan ' +
+                  Math.floor(res[TestBnCategory.THINK] / 8) +
+                  '%';
+                setTimeout(async () => {
+                  await ctx.reply(result);
+                }, 18000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.THIRD_BLOG[3]);
+                }, 19000);
+                setTimeout(async () => {
+                  await ctx.reply(Reck.TEST_NB.THIRD_BLOG[4]);
+                }, 32000);
+                break;
+              }
+            }
+            return this.startBnTest(
+              ctx,
+              Number(res[0]) + 1,
+              TestBnType.NOW,
+              40000,
+            );
+          }
+        } else {
+          const res = this.sumByCategory(ctx.session.tes_bn);
+          await this.testResultsRepository.create({
+            user_id: ctx.session.user_id,
+            result_bn: ctx.session.tes_bn,
+          });
+          // const total_result = {
+          //   [TestBnCategory.BUSINESS]: res[TestBnCategory.BUSINESS] / 8,
+          //   [TestBnCategory.ENERGY]: res[TestBnCategory.ENERGY] / 8,
+          //   [TestBnCategory.SOFT_SKILLS]: res[TestBnCategory.SOFT_SKILLS] / 8,
+          //   [TestBnCategory.THINK]: res[TestBnCategory.THINK] / 8,
+          // };
+          ctx.session.status = BotStatus.MENU;
+          await this.usersRepository.updateByBotUserId(ctx.from.id, {
+            bot_user_status: BotStatus.MENU,
+          });
+          setTimeout(async () => {
+            await ctx.reply(Reck.TEST_NB.FOUR_BLOG[1]);
+          }, 5000);
+          const sticker = StickerBn[Math.floor(res[TestBnCategory.THINK] / 80)];
+          const result =
+            sticker +
+            '\n100% dan' +
+            Math.floor(res[TestBnCategory.THINK] / 8) +
+            '%';
+          setTimeout(async () => {
+            await ctx.reply(result);
+          }, 20000);
+          setTimeout(async () => {
+            await ctx.reply(Reck.TEST_NB.FOUR_BLOG[2]);
+          }, 22000);
+          setTimeout(async () => {
+            await ctx.reply(
+              MessageText.CHOOSE_MENU,
+              this.getButtons(BotStatus.MENU),
+            );
+          }, 23000);
+        }
+      }
     }
+  }
+
+  sumByCategory(data: any[]): { [category: string]: number } {
+    return data.reduce(
+      (acc, item) => {
+        if (!acc[item.category]) {
+          acc[item.category] = 0;
+        }
+        acc[item.category] += item.average_ball;
+        return acc;
+      },
+      {} as { [category: string]: number },
+    );
   }
 
   async updateFile(result: any) {
@@ -280,7 +462,6 @@ export class BotService {
         return;
       }
       case BotStatus.TEST.KOLESO: {
-        console.log(ctx.session);
         if (!ctx.session['koleso']) {
           return;
         }
@@ -319,10 +500,76 @@ export class BotService {
       case KeyboardText.TEST_KOLESO: {
         const { status, user_id, ...rest } = ctx.session;
         ctx.session = { status: BotStatus.TEST.KOLESO, user_id };
+
         return this.startKolesoTest(ctx, 0);
+      }
+      case KeyboardText.TEST_BN: {
+        const { status, user_id, ...rest } = ctx.session;
+        ctx.session = { status: BotStatus.TEST.BN, user_id, tes_bn: [] };
+        return this.startBnTest(ctx, 0, TestBnType.NOW);
       }
     }
   }
+  async startBnTest(
+    ctx: MyContext,
+    i: number,
+    type: TestBnType,
+    time: number = 3000,
+  ) {
+    const test = TestBn[i];
+    const keyBoards: any[] = [];
+    let j = 1;
+    let t: any[] = [];
+    let buttonText: string;
+    if (type === TestBnType.NOW) {
+      let question = test.question;
+      question += '\n\n';
+      buttonText = 'Hozirda: ';
+      test.answer.forEach((element) => {
+        question += element.text + '\n';
+        t.push({
+          text: j,
+          callback_data:
+            i + '|' + test.category + '|' + element.ball + '|' + TestBnType.NOW,
+        });
+        j++;
+      });
+      await setTimeout(async () => {
+        return await ctx.reply(question);
+      }, time - 2000);
+    } else {
+      buttonText = 'Kelajakda: ';
+      test.answer.forEach((element) => {
+        t.push({
+          text: j,
+          callback_data:
+            i +
+            '|' +
+            test.category +
+            '|' +
+            element.ball +
+            '|' +
+            TestBnType.FEATURE,
+        });
+        j++;
+      });
+    }
+    keyBoards.push(t);
+    if (i === 0) {
+      await ctx.reply('Business categoriyasi savollari: ', {
+        reply_markup: { remove_keyboard: true },
+      });
+    }
+
+    setTimeout(async () => {
+      await ctx.reply(buttonText, {
+        reply_markup: {
+          inline_keyboard: keyBoards,
+        },
+      });
+    }, time);
+  }
+
   async startKolesoTest(ctx: MyContext, i: number, time: number = 2000) {
     const test = TestKoleso[i];
     const keyBoards: any[] = [];
