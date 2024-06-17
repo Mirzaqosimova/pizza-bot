@@ -40,3 +40,18 @@ export const MessageText = {
   SEND_BUSINESS: 'Biznesingizni kiriting',
   WRONG_FORMAT: `No to'g'ri format`,
 };
+
+export const PhotoIds = {
+  BN_START:
+    'AgACAgIAAxkBAAI652ZwchxdQeq7sDtYZqPwtiLxt_yBAAI-2zEbeFiJS6XqmDa0qikIAQADAgADeQADNQQ',
+  INTRODUCING:
+    'AgACAgIAAxkBAAI66WZwckZttnlaptlNy2auA8uQvEOHAAJA2zEbeFiJSzfFGUlEfhtMAQADAgADeQADNQQ',
+  BN_BUSINESS:
+    'AgACAgIAAxkBAAI662ZwclEvCL8sTIWv6OmUqhzM6ahWAAJB2zEbeFiJS9StafdVnvjdAQADAgADeQADNQQ',
+  BN_SOFT_SKILLS:
+    'AgACAgIAAxkBAAI67WZwcly13SPHxjlsj83FRIXHIRZQAAJC2zEbeFiJS2SjdckQDq2iAQADAgADeQADNQQ',
+  BN_THINK:
+    'AgACAgIAAxkBAAI672ZwcmUKtmdxa1quVeJuqfMrp-1sAAJD2zEbeFiJSwsFxoAbCElzAQADAgADeQADNQQ',
+  BN_ENERGY:
+    'AgACAgIAAxkBAAI68WZwcnH_XvqTzJNKCxaYumQOzxcSAAJE2zEbeFiJS0V1SiRSijxyAQADAgADeQADNQQ',
+};

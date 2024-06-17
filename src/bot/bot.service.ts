@@ -1,3 +1,4 @@
+import { PhotoIds } from './const/const';
 import { TestResultsRepository } from './../test-results/test-results.repository';
 import {
   BotStatus,
@@ -75,6 +76,7 @@ export class BotService {
     ctx.session.status = BotStatus.ENTER_NAME;
     ctx.session.full_name = full_name;
     await ctx.reply(MessageText.MEETING);
+    await ctx.replyWithPhoto(PhotoIds.INTRODUCING);
     await ctx.reply('Sizga ' + full_name + ' deb murojaat qilaveraylikmi?', {
       reply_markup: {
         inline_keyboard: [
@@ -199,14 +201,14 @@ export class BotService {
         });
         await ctx.reply(
           `
-          \nPersonal Growth: ${result.personal_growth},
-          \nFamily: ${result.family},
-          \nFriends Around: ${result.friends_around},
-          \nValue: ${result.value},
-          \nFinancial Stability: ${result.financial_stability},
-          \nHobby and Interests: ${result.hobby_and_interests},
-          \nSport and Health: ${result.sport_health},
-          \nCareer: ${result.career}`,
+          \nShahsiy o'sish: ${result.personal_growth},
+          \nOila, Munosabatlar: ${result.family},
+          \nAtrofdagi Do'stlar (muloqot): ${result.friends_around},
+          \nQadriyat: ${result.value},
+          \nMoliyaviy barqarorlik: ${result.financial_stability},
+          \nHobbi va qiziqishlar: ${result.hobby_and_interests},
+          \nSport-Sog'liq: ${result.sport_health},
+          \nBiznes-karera: ${result.career}`,
           this.getButtons(BotStatus.MENU),
         );
       }
@@ -263,7 +265,9 @@ export class BotService {
                   await ctx.reply(Reck.TEST_NB.FIRST_BLOG[3]);
                 }, 19000);
                 setTimeout(async () => {
-                  await ctx.reply(Reck.TEST_NB.FIRST_BLOG[4]);
+                  await ctx.replyWithPhoto(PhotoIds.BN_SOFT_SKILLS, {
+                    caption: Reck.TEST_NB.FIRST_BLOG[4],
+                  });
                 }, 32000);
                 break;
               }
@@ -287,8 +291,11 @@ export class BotService {
                   await ctx.reply(Reck.TEST_NB.SECOND_BLOG[3]);
                 }, 19000);
                 setTimeout(async () => {
-                  await ctx.reply(Reck.TEST_NB.SECOND_BLOG[4]);
+                  await ctx.replyWithPhoto(PhotoIds.BN_THINK, {
+                    caption: Reck.TEST_NB.SECOND_BLOG[4],
+                  });
                 }, 32000);
+
                 break;
               }
               case TestBnCategory.ENERGY: {
@@ -312,7 +319,9 @@ export class BotService {
                   await ctx.reply(Reck.TEST_NB.THIRD_BLOG[3]);
                 }, 19000);
                 setTimeout(async () => {
-                  await ctx.reply(Reck.TEST_NB.THIRD_BLOG[4]);
+                  await ctx.replyWithPhoto(PhotoIds.BN_ENERGY, {
+                    caption: Reck.TEST_NB.THIRD_BLOG[4],
+                  });
                 }, 32000);
                 break;
               }
@@ -415,6 +424,26 @@ export class BotService {
       },
     });
   }
+  // @On('photo')
+  // async onPhoto(@Ctx() ctx: MyContext) {
+  //   const message = ctx.message as Message.PhotoMessage;
+  //   if (message.photo) {
+  //     // Get the array of photos (different sizes)
+  //     const photos = message.photo;
+
+  //     // Get the file ID of the largest photo
+  //     const largestPhoto = photos[photos.length - 1];
+  //     const fileId = largestPhoto.file_id;
+
+  //     // Log the file ID
+  //     console.log('Photo file ID:', fileId);
+
+  //     // Reply with the same photo
+  //     await ctx.replyWithPhoto(fileId);
+  //   } else {
+  //     await ctx.reply('No photo found in the message.');
+  //   }
+  // }
 
   @On('text')
   async onText(@Ctx() ctx: MyContext) {
@@ -506,6 +535,7 @@ export class BotService {
       case KeyboardText.TEST_BN: {
         const { status, user_id, ...rest } = ctx.session;
         ctx.session = { status: BotStatus.TEST.BN, user_id, tes_bn: [] };
+        await ctx.replyWithPhoto(PhotoIds.BN_START);
         return this.startBnTest(ctx, 0, TestBnType.NOW);
       }
     }
@@ -556,7 +586,7 @@ export class BotService {
     }
     keyBoards.push(t);
     if (i === 0) {
-      await ctx.reply('Business categoriyasi savollari: ', {
+      await ctx.replyWithPhoto(PhotoIds.BN_BUSINESS, {
         reply_markup: { remove_keyboard: true },
       });
     }
@@ -570,7 +600,7 @@ export class BotService {
     }, time);
   }
 
-  async startKolesoTest(ctx: MyContext, i: number, time: number = 2000) {
+  async startKolesoTest(ctx: MyContext, i: number, time: number = 1000) {
     const test = TestKoleso[i];
     const keyBoards: any[] = [];
     let question = test.question;
