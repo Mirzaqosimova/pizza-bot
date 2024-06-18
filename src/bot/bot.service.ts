@@ -552,7 +552,7 @@ export class BotService {
     let t: any[] = [];
     let buttonText: string;
     if (type === TestBnType.NOW) {
-      let question = test.question;
+      let question = '<b>' + test.question + '</b>';
       question += '\n\n';
       buttonText = 'Hozirda: ';
       test.answer.forEach((element) => {
@@ -565,7 +565,7 @@ export class BotService {
         j++;
       });
       await setTimeout(async () => {
-        return await ctx.reply(question);
+        return await ctx.reply(question, { parse_mode: 'HTML' });
       }, time - 2000);
     } else {
       buttonText = 'Kelajakda: ';
@@ -603,7 +603,7 @@ export class BotService {
   async startKolesoTest(ctx: MyContext, i: number, time: number = 1000) {
     const test = TestKoleso[i];
     const keyBoards: any[] = [];
-    let question = test.question;
+    let question = '<b>' + test.question + '</b>';
     if (test.type === TestType.NUMBERS) {
       let t: any[] = [];
       for (let j = 1; j <= 5; j++) {
@@ -646,6 +646,7 @@ export class BotService {
     if (test.type !== TestType.MULTIPLE_ANSWER) {
       setTimeout(async () => {
         await ctx.reply(question, {
+          parse_mode: 'HTML',
           reply_markup: {
             inline_keyboard: keyBoards,
           },
@@ -655,6 +656,7 @@ export class BotService {
       setTimeout(async () => {
         await ctx.reply(
           question + `\n\nJavoblarni 1,2,3,4 ko'rinishida yuboring`,
+          { parse_mode: 'HTML' },
         );
       }, time);
     }
