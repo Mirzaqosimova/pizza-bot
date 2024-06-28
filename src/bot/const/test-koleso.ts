@@ -16,12 +16,16 @@ export enum TestType {
 }
 // export const TestKoleso = [
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `1 dan 10 gacha o'rganishni, rivojlanishni, yangi narsalarni o'rganishni qanchalik yaxshi ko'rishingizni aniqlang?`,
 //     category: KolesoCategories.PERSONAL_GROWTH,
 //     type: TestType.NUMBERS,
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Sevgan insoningiz bormi?`,
 //     type: TestType.SINGLE_ANSWER,
 //     category: KolesoCategories.FAMILY,
@@ -38,18 +42,24 @@ export enum TestType {
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Atrofingizdagi odamlarning Sog'liqni saqlash sohasida qanchalik rivojlanganligini 1 dan 10 gacha aniqlang`,
 //     category: KolesoCategories.FRIENDS_AROUND,
 //     type: TestType.NUMBERS,
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `O'zingizni qanchalik intizomli deb hisoblaysiz, 1 dan 10 gacha aniqlang? (bu erda 0 men har doim muddatlar va majburiyatlarni e'tiborsiz qoldiraman va 10 nima bo'lishidan qat'i nazar, men hamma narsani o'z vaqtida bajaraman)`,
 //     category: KolesoCategories.VALUE,
 //     type: TestType.NUMBERS,
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Daromadingizning 100 foizini turli manbalarga taqsimlang.`,
 //     category: KolesoCategories.FINANCIAL_STABILITY,
 //     type: TestType.MULTIPLE_ANSWER,
@@ -93,6 +103,8 @@ export enum TestType {
 //     ],
 //   },
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Siz shahsiy moliyaviy hisobotlarni yuritasizmi?`,
 //     type: TestType.SINGLE_ANSWER,
 //     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -109,6 +121,8 @@ export enum TestType {
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Sizning sevimli mashg'ulotingiz bormi?`,
 //     type: TestType.SINGLE_ANSWER,
 //     category: KolesoCategories.HOBBY_AND_INTERESTS,
@@ -133,6 +147,8 @@ export enum TestType {
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `Kuniga necha soat uxlaysiz? Odatda uyqudan keyin o'zingizni qanday his qilasiz?`,
 //     type: TestType.SINGLE_ANSWER,
 //     category: KolesoCategories.SPORT_HEALTH,
@@ -165,6 +181,8 @@ export enum TestType {
 //   },
 
 //   {
+//     photo:
+//       'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
 //     question: `1 dan 10 gacha stressga chidamlilik darajasini, o'zingizni nazorat qilish va stressli sharoitlarda his-tuyg'ularingizni boshqarish qobiliyatini aniqlang.`,
 //     category: KolesoCategories.CAREER,
 //     type: TestType.NUMBERS,
@@ -173,46 +191,64 @@ export enum TestType {
 
 export const TestKoleso = [
   {
+    photo:
+      'AgACAgIAAxkBAAI8WWZ-W-fEjnXuHVPGIx8QO8-DQS7GAAIR3DEbVwn5Sy7GgzJ7jEUuAQADAgADeQADNQQ',
     question: `1. Rivojlanishni, yangi narsalarni o'rganishni qanchalik yaxshi ko'rishingizni aniqlang??`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8W2Z-W-oMXoPIvNNtp0kYhCG-lrCfAAIS3DEbVwn5S3QWJT9JBI5EAQADAgADeQADNQQ',
     question: `2. O'zingizga bo'lgan ishonchni 10 ball bilan baholang. (bu erda 10 har qanday vaziyatda ishonch, hatto notanish ham)`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8ZWZ-XVjtS1QQKoGiIB1wpWaN9fjbAAIj3DEbVwn5S2hBPBLq83lrAQADAgADeQADNQQ',
     question: `3. O'z oldingizga qanchalik  Maqsadlarni yozib qo'yasiz va ularni  amalga oshirasiz. (1 - Men hech qachon maqsad qo'ymayman yoki hech narsani rejalashtirmayman, men o'z-o'zidan harakat qilaman. 10 - men muntazam ravishda o'zimga maqsadlar qo'yaman, hamma narsani rejalashtiraman va har doim rejalashtirgan narsamga erishaman)`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8eWZ-XxMvQI4IqUSBje3T1TL3WBBvAAI73DEbVwn5Syuyb7euuY1KAQADAgADeQADNQQ',
     question: `4. Odamlarni qanchalik tushunasiz? 1 - yomon, ular ko'pincha aldashadi. 10 - Men har doim uning harakatlarini aniq aniqlayman va oldindan aytib bera olaman`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8e2Z-XxaNeSC6BuR80GwvsAo8g6LQAAI83DEbVwn5S4lKQ-XBig-iAQADAgADeQADNQQ',
     question: `5. Sizning muloqot qobiliyatingiz qanchalik rivojlangan? 1 - Menga odamlar bilan umumiy til topish qiyin 10 - Men osongina yangi tanishlar orttiraman, suhbatdoshimni faol tinglayman, o'zim haqimda yaxshi taassurot qoldiraman`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8f2Z-XxzB9f-4iyWnOBlNMaGO-xPmAAI-3DEbVwn5S7-SERBe-sBhAQADAgADeQADNQQ',
     question: `6. O'zingizni qanchalik faol deb hisoblaysiz?`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8gWZ-Xx_8jTQczo0GmaDzMPeVqoR7AAI_3DEbVwn5S8MqsUBMppE1AQADAgADeQADNQQ',
     question: `7. Odatda vaziyatga qanchalik mos kiyinasiz va o'zingizni qulay va ishonchli his qilasizmi?`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8iWZ-Xyxpgtq1fHYBhdY4b2AlPiJ2AAJD3DEbVwn5Swh1fDyacabfAQADAgADeQADNQQ',
     question: `8. San'atga bo'lgan munosabatingizni baholang (san'atga muhabbat, san'atning har qanday turiga jalb qilish). 1 - Menimcha, san'at keraksiz narsa, men san'atni yoqtirmayman 10 - Men san'atni yaxshi ko'raman, men o'zim muntazam ravishda san'at bilan shug'ullanaman.`,
     category: KolesoCategories.PERSONAL_GROWTH,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8jWZ-XzFyUEhEtPIyMky8ysj66vcTAAJF3DEbVwn5SziWuoP-W-4NAQADAgADeQADNQQ',
     question: `9. Siz kechirishni va kechirim so'rashni bilasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.PERSONAL_GROWTH,
@@ -236,6 +272,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8kWZ-YZMUDuhWRwOzOdCQrVDLqkJ6AAJG3DEbVwn5S13vf_1I-0FXAQADAgADeQADNQQ',
     question: `10. O'zimni sevaman va hurmat qilaman deb ayta olasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.PERSONAL_GROWTH,
@@ -259,6 +297,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8TWZ-WufmLt5IvSOyQUfVjwK_BakXAAIJ3DEbVwn5S0fhLIefmy99AQADAgADeQADNQQ',
     question: `1. Sevgan insoningiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FAMILY,
@@ -274,6 +314,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8T2Z-W9hfpmGNPG_blomEmMSXa_evAAIM3DEbVwn5S2vSO06K9t2MAQADAgADeQADNQQ',
     question: `2. Oilangizga g'amxo'rlik, mehr-muhabbat, qulay va xavfsiz sharoitlar bilan ta'minlaysizmi, ularga qadrli narsalarni berasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FAMILY,
@@ -298,17 +340,23 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8UWZ-W9uhInwKpb8EyHH0g_lXGi5fAAIN3DEbVwn5Sw5E6w9zSUNQAQADAgADeQADNQQ',
     question: `3. Oila a'zolaringiz bilan qanchalik yaqin va ishonchli munosabatlarga ega deb o'ylaysiz?`,
     category: KolesoCategories.FAMILY,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8U2Z-W94XVdYwm3ggnLGYZbcsRJa2AAIO3DEbVwn5S-PW-ifQgasgAQADAgADeQADNQQ',
     question: `4. Sizning hayotiy qadriyatlaringiz umir yo'ldoshingiz bilan qanchalik mos keladi deb o'ylaysiz? 1 dan 10 gacha baholang, bu erda 1 - qadriyatlar qarama-qarshi va 10 - uyg'unlik, aksariyat qadriyatlar va qarashlarning mos kelishi.`,
     category: KolesoCategories.FAMILY,
     type: TestType.NUMBERS,
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8i2Z-Xy7CzEAabO93fGWGHUE8TNvOAAJE3DEbVwn5S6mc0znUqxSaAQADAgADeQADNQQ',
     question: `5. Sizning oilaviy shajarangiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FAMILY,
@@ -329,46 +377,64 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8aWZ-XV8rd-BtmlT7Dab9rG6ZGQy3AAIl3DEbVwn5S4ZFKWEDpRADAQADAgADeQADNQQ',
     question: `1. Atrofingizdagi odamlarning Sog'liqni saqlash sohasida qanchalik rivojlangan?`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8a2Z-XWJVqHrqyx7RDg7Sx7SHjzyXAAIm3DEbVwn5S-EqVcE5g_sBAQADAgADeQADNQQ',
     question: `2. Atrofingizdagi odamlar moliya sohasida qanchalik rivojlangan?`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8bWZ-XWanyfMHicYlKJl7HVKEcnYBAAIn3DEbVwn5S-_R3U07zFY0AQADAgADeQADNQQ',
     question: `3. Atrofingizdagi odamlarning Dam olish, qiziqarli mashg'ulotlar bilan qanchalik faol rivojlangan?`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8b2Z-XW7rC-bSWJugNCakT8xfVAxiAAIo3DEbVwn5S0yMRJVOqUflAQADAgADeQADNQQ',
     question: `4. Atrofingizdagi odamlarning oila va munosabatlarida qanchalik rivojlanganligini aniqlang.`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8cWZ-XXGs3OIn4exSi5VCBofwewhHAAIp3DEbVwn5S6ZMw6krZZoTAQADAgADeQADNQQ',
     question: `5. Atrofingizdagi odamlarning Karyera sohasida qanchalik rivojlanganligini aniqlang`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8c2Z-XXVKjVidtEeGscbu5Nhdcy2VAAIr3DEbVwn5S2MYwLJekrS1AQADAgADeQADNQQ',
     question: `6. Atrofingizdagi odamlarning shaxsiy o'sish sohasida qanchalik rivojlanganligini aniqlang`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8dWZ-XXn6YF07hYerRAx_U0GAjVBrAAIs3DEbVwn5S6ud_7ePfZLXAQADAgADeQADNQQ',
     question: `7. Atrofingizdagi odamlarning muloqotqilish qobiliyati qanchalik rivojlanganligini aniqlang`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8d2Z-XXwGfUkhOa4HHSzcpWd1ylB0AAIt3DEbVwn5S0lWQbm-9-J6AQADAgADeQADNQQ',
     question: `8. Atrofingizdagi odamlarning Ma’naviyati qanchalik rivojlanganligini aniqlang`,
     category: KolesoCategories.FRIENDS_AROUND,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8g2Z-XyKUpKYlXbIZhxUZtDgUFD9vAAJA3DEbVwn5SwKXr-Qil_2-AQADAgADeQADNQQ',
     question: `9. O'zingizni odamlarni sevadigan odam deb hisoblaysizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FRIENDS_AROUND,
@@ -384,6 +450,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8h2Z-XyfvRVkSKwm8k0I4FN5sllFEAAJC3DEbVwn5S_poFRY9jNcOAQADAgADeQADNQQ',
     question: `10. Siz o'zingizni boshqa odamlar, tabiat, koinot bilan bog'liq bo'lgan kattaroq narsaning bir qismi deb hisoblaysizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FRIENDS_AROUND,
@@ -399,12 +467,16 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8I2Z-TxGwH6gN9ip5ONl0kLDDL6ZPAALS2zEbVwn5S2Vd5B13ttW_AQADAgADeQADNQQ',
     question: `1. O'zingizni qanchalik intizomli deb hisoblaysiz, 1 dan 10 gacha aniqlang? (bu erda 1 men har doim muddatlar va majburiyatlarni e'tiborsiz qoldiraman va 10 nima bo'lishidan qat'i nazar, men hamma narsani o'z vaqtida bajaraman)`,
     category: KolesoCategories.VALUE,
     type: TestType.NUMBERS,
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8K2Z-Wcxy-WL3TOTxmauh82wyMDaTAALz2zEbVwn5S9Zs6y-eQ0KpAQADAgADeQADNQQ',
     question: `2. Yomon odatlaringiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -420,6 +492,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8XWZ-W-2C6LZjOecZDVZt9P1dE-8AAxPcMRtXCflL4UOFtBV3RzcBAAMCAAN5AAM1BA',
     question: `3. Hayotdagi qadriyatlaringizni bilasizmi, siz uchun nima eng qimmatli va muhim?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -439,6 +513,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8vmZ-Y4A7HaHHg_H9ISZwRC1paQAB6gACPtwxG1cJ-Uu_khEQXvrAYQEAAwIAA3kAAzUE',
     question: `4. Sizni o'rganadigan va rivojlantiradigan ustoz, bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -462,6 +538,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8YWZ-W_Vz4bvxEL6ODQ4W57q2CSb5AAIV3DEbVwn5S5TSu1GSN_uGAQADAgADeQADNQQ',
     question: `5. Siz xayriya, ko'ngillilik yoki ijtimoiy tadbirlarda qatnashib turasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -481,6 +559,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8Z2Z-XVuydXgN11f_InCQtxLhDB9bAAIk3DEbVwn5S4Kuu0pNT9M5AQADAgADeQADNQQ',
     question: `6. Siz boshqalarga o'rgatasizmi, o'z tajribangizni va bilimingizni uzatasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -500,11 +580,15 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8fWZ-Xxnn2PuiO1DE9S3zDEU_FNnlAAI93DEbVwn5S3_EvlZYq3IDAQADAgADeQADNQQ',
     question: `7. Boshqa odamlarga qanchalik hamdard bo'lishingiz mumkinligini aniqlang.`,
     category: KolesoCategories.VALUE,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8hWZ-XyRUOV_bRVfB2dXMrvCvCcv0AAJB3DEbVwn5SyQNj3ftmqm4AQADAgADeQADNQQ',
     question: `8. Sizning hayot missiyangiz, maqsadingiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.VALUE,
@@ -520,6 +604,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8MWZ-WdcWHBRT6-tnY7r2QMeuKZAyAAL22zEbVwn5S9Z2a6VTc1L2AQADAgADeQADNQQ',
     question: `1. Daromadingizning 100 foizini turli manbalarga taqsimlang.`,
     category: KolesoCategories.FINANCIAL_STABILITY,
     type: TestType.MULTIPLE_ANSWER,
@@ -563,6 +649,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8M2Z-WdumUGL-h_W0qszxtJjwq5k7AAL32zEbVwn5S2rMCo72STMfAQADAgADeQADNQQ',
     question: `2. Siz shahsiy moliyaviy hisobotlarni yuritasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -578,6 +666,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8NWZ-Wd8NK8OKvwPaAAEbcL6mwwjGZgAC-NsxG1cJ-UsffSqosZPq-AEAAwIAA3kAAzUE',
     question: `3. Byudjetingizni rejalashtiryapsizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -601,6 +691,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8N2Z-WeKYuFeXuEtj_Xz9oCencVXCAAL52zEbVwn5S0djYcR6AhEoAQADAgADeQADNQQ',
     question: `4. Moliyaviy yangiliklardan xabardormisiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -624,6 +716,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8OWZ-WeXjn1p1vY-AaCG4FHDZP15dAAL62zEbVwn5S9NE82-zmDvGAQADAgADeQADNQQ',
     question: `5. Sizning yaqin kelajakda yoki uzoq muddatli moliyaviy maqsadlaringiz bormi (ko'chmas mulk, avtomobil sotib olish, ta'lim, sayohat, davolanish va h.k.)?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -639,6 +733,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8O2Z-WssZAWj4Mtd8AAGCM7xbepo8fgAD3DEbVwn5S7LHwlYsSbcOAQADAgADeQADNQQ',
     question: `6. Jamg'arma uchun alohida hisobingiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -654,6 +750,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8P2Z-WtEAASEOiRu_v3W_kd6FirhErgACAtwxG1cJ-Ut7s29fiyRBygEAAwIAA3kAAzUE',
     question: `7. Sizning daromadingiz oylik xarajatlaringizdan yuqorimi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -677,6 +775,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8QWZ-WtT_VwaHFJMDe-ssR67khAEXAAID3DEbVwn5S2eT9RYxD3P4AQADAgADeQADNQQ',
     question: `8. Qarzlaringiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -708,6 +808,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8Q2Z-WteThYBKAY9Xt-xZbPt-RBjXAAIE3DEbVwn5S5wwZck-hMXkAQADAgADeQADNQQ',
     question: `9. Mavjud mablag'laringizni moliyaviy maqsadlar uchun taqsimlaysizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -723,6 +825,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8RWZ-WtqB-swRjgTf1ghcDeRmB2tOAAIF3DEbVwn5S7UKA-dVwZBgAQADAgADeQADNQQ',
     question: `10. Sizning hayotingizni 6 oy davomida qoplash uchun etarli moliyaviy yostiq bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.FINANCIAL_STABILITY,
@@ -739,12 +843,16 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8E2Z-TZx4XXBRFKVWg-SpLrjYsdCIAALD2zEbVwn5S35BUduXLGgkAQADAgADeQADNQQ',
     question: `1. O'tgan oydagi kayfiyatingizni aniqlang. (bu erda 0 salbiy va 10 ijobiy)`,
     category: KolesoCategories.HOBBY_AND_INTERESTS,
     type: TestType.NUMBERS,
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8FWZ-TlDzVThBagbG0hWLBo30HrDuAALK2zEbVwn5S0qWt80-sBMjAQADAgADeQADNQQ',
     question: `2. Sizning sevimli mashg'ulotingiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.HOBBY_AND_INTERESTS,
@@ -768,6 +876,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8F2Z-TmSBY-BX1FwtqSHAjaYUUVBoAALL2zEbVwn5S_UwxYEPzjq8AQADAgADeQADNQQ',
     question: `3. Dam olishda bo'lganingizda, ish yoki boshqa tashvishlar haqida o'ylaysizmi yoki umuman aloqangiz uzilib, ta'tildan zavqlanasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.HOBBY_AND_INTERESTS,
@@ -787,6 +897,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8GWZ-TnNE64hvfPzXKa0jHO9llE5yAALM2zEbVwn5S0ZFG2TM9HtgAQADAgADeQADNQQ',
     question: `4. Ta'tilingizni oldindan rejalashtirasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.HOBBY_AND_INTERESTS,
@@ -810,11 +922,15 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8G2Z-Tn6EZvOjn_hjdulRCuItzHZvAALN2zEbVwn5S1ugES-FvbLwAQADAgADeAADNQQ',
     question: `5. Sizningcha, toza havoda, tabiatda yetarlicha vaqt o'tkazasizmi?`,
     category: KolesoCategories.HOBBY_AND_INTERESTS,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8HWZ-TpHIVmqJJlVy6iRG5asmYFB6AALP2zEbVwn5S25zx7Kb7jywAQADAgADeQADNQQ',
     question: `1. Oziqlanish holatingizga mos keladigan variantni tanlang.`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.SPORT_HEALTH,
@@ -838,6 +954,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8H2Z-TqrcKkvzWHDUsHWja_ZC3fEBAALQ2zEbVwn5SxO9GMmemtHAAQADAgADeQADNQQ',
     question: `2. Kuniga necha soat uxlaysiz? Odatda uyqudan keyin o'zingizni qanday his qilasiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.SPORT_HEALTH,
@@ -870,6 +988,8 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8IWZ-TtJzXtQhWiMOE1wpEvIooQwJAALR2zEbVwn5Sw3fT-sm9-XDAQADAgADeQADNQQ',
     question: `3. Jismoniy faollik holatiga mos keladigan variantni tanlang.`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.SPORT_HEALTH,
@@ -898,6 +1018,8 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8KWZ-Wcp4pteXuPMTRTZuJVsgLkWGAALy2zEbVwn5SzxgV39Qc3Y4AQADAgADeQADNQQ',
     question: `4. Surunkali kasalliklaringiz bormi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.SPORT_HEALTH,
@@ -917,6 +1039,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8LWZ-WdCit79YPzJStTF1pV7hTuDRAAL02zEbVwn5S88tfCHHJA_wAQADAgADeQADNQQ',
     question: `5. So'nggi 6 oy ichida siz butun tanangizning holatini tekshirish - diagnostikadan o'tkazdingizmi (check-up)?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.SPORT_HEALTH,
@@ -933,17 +1057,23 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8JWZ-Tzxl5pCtwnK9p_24QL-TSubWAALT2zEbVwn5S6dD4h7xyWJ6AQADAgADeQADNQQ',
     question: `1. O'z oldingizga qo'ygan maqsadlarga erishish uchun ichki motivatsiyangiz bormi?`,
     category: KolesoCategories.CAREER,
     type: TestType.NUMBERS,
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8J2Z-WcfD0MSf8sYY24UznCK_TecBAALx2zEbVwn5S69BayW6_6KvAQADAgADeQADNQQ',
     question: `2. Stressga chidamlilik darajangizni, o'zingizni nazorat qilish va stressli sharoitlarda his-tuyg'ularingizni boshqarish qobiliyatini belgilang.`,
     category: KolesoCategories.CAREER,
     type: TestType.NUMBERS,
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8L2Z-WdQPoke9x-YvsUIdSx3ed2sTAAL12zEbVwn5Syw-WtWgFklQAQADAgADeQADNQQ',
     question: `3. Analitik fikrlash qanchalik rivojlanganligini belgilang?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -963,6 +1093,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8PWZ-Ws7kT8CMWhcNINg0Rd_AppsbAAIB3DEbVwn5S98wzYWTcNkeAQADAgADeQADNQQ',
     question: `4. Tasavvur qiling-a, sizda hayotingizni yaxshilash uchun imkoniyat bor. Odatda nima qilasiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -986,6 +1118,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8R2Z-Wt2UaZ4LITtpYdtabY3GQdZSAAIG3DEbVwn5S6ug7XrA25FVAQADAgADeQADNQQ',
     question: `5. Odatda mojarolarni qanday hal qilasiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -1009,6 +1143,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8SWZ-WuAEYN7wwqCO2i7I8LjfC5hBAAIH3DEbVwn5Sytbv34aWkPFAQADAgADeQADNQQ',
     question: `6. Odatda, agar biror narsaga va'da bersangiz, buni qilasizmi yoki nima uchun bu ish bajarmaganingizga bahona topasizmi?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -1028,6 +1164,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8S2Z-WuTDHHv6cynaOOiFy4j0_Sx3AAII3DEbVwn5SzIx3F5tsEAGAQADAgADeQADNQQ',
     question: `7. Agar xato qilsangiz, odatda nima qilasiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -1047,6 +1185,8 @@ export const TestKoleso = [
     ],
   },
   {
+    photo:
+      'AgACAgIAAxkBAAI8VWZ-W-HYaDU6osVX6bm4F8V2dKtiAAIP3DEbVwn5S8oJhcrBpr9SAQADAgADeQADNQQ',
     question: `8. Odatda ishingizni qanday bajarasiz?`,
     type: TestType.SINGLE_ANSWER,
     category: KolesoCategories.CAREER,
@@ -1071,6 +1211,8 @@ export const TestKoleso = [
   },
 
   {
+    photo:
+      'AgACAgIAAxkBAAI8V2Z-W-QFpfdlXzZYIkwfMDS8wyAeAAIQ3DEbVwn5S16UVZHnEwddAQADAgADeQADNQQ',
     question: `9. Siz qilayotgan ishingizdan qanchalik zavqlanasiz?`,
     category: KolesoCategories.CAREER,
     type: TestType.NUMBERS,

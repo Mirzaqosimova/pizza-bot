@@ -200,15 +200,15 @@ export class BotService {
           bot_user_status: BotStatus.MENU,
         });
         await ctx.reply(
-          `
-          \nShahsiy o'sish: ${result.personal_growth},
-          \nOila, Munosabatlar: ${result.family},
-          \nAtrofdagi Do'stlar (muloqot): ${result.friends_around},
-          \nQadriyat: ${result.value},
-          \nMoliyaviy barqarorlik: ${result.financial_stability},
-          \nHobbi va qiziqishlar: ${result.hobby_and_interests},
-          \nSport-Sog'liq: ${result.sport_health},
-          \nBiznes-karera: ${result.career}`,
+          `Sizning resultatingiz:\n
+          \nShahsiy o'sish: ${parseFloat(result.personal_growth.toFixed(1))},
+          \nOila, Munosabatlar: ${parseFloat(result.family.toFixed(1))},
+          \nAtrofdagi Do'stlar (muloqot): ${parseFloat(result.friends_around.toFixed(1))},
+          \nQadriyat: ${parseFloat(result.value.toFixed(1))},
+          \nMoliyaviy barqarorlik: ${parseFloat(result.financial_stability.toFixed(1))},
+          \nHobbi va qiziqishlar: ${parseFloat(result.hobby_and_interests.toFixed(1))},
+          \nSport-Sog'liq: ${parseFloat(result.sport_health.toFixed(1))},
+          \nBiznes-karera: ${parseFloat(result.career.toFixed(1))}`,
           this.getButtons(BotStatus.MENU),
         );
       }
@@ -424,26 +424,26 @@ export class BotService {
       },
     });
   }
-  // @On('photo')
-  // async onPhoto(@Ctx() ctx: MyContext) {
-  //   const message = ctx.message as Message.PhotoMessage;
-  //   if (message.photo) {
-  //     // Get the array of photos (different sizes)
-  //     const photos = message.photo;
+  @On('photo')
+  async onPhoto(@Ctx() ctx: MyContext) {
+    const message = ctx.message as Message.PhotoMessage;
+    if (message.photo) {
+      // Get the array of photos (different sizes)
+      const photos = message.photo;
 
-  //     // Get the file ID of the largest photo
-  //     const largestPhoto = photos[photos.length - 1];
-  //     const fileId = largestPhoto.file_id;
+      // Get the file ID of the largest photo
+      const largestPhoto = photos[photos.length - 1];
+      const fileId = largestPhoto.file_id;
 
-  //     // Log the file ID
-  //     console.log('Photo file ID:', fileId);
+      // Log the file ID
+      console.log('Photo file ID:', fileId);
 
-  //     // Reply with the same photo
-  //     await ctx.replyWithPhoto(fileId);
-  //   } else {
-  //     await ctx.reply('No photo found in the message.');
-  //   }
-  // }
+      // Reply with the same photo
+      await ctx.replyWithPhoto(fileId);
+    } else {
+      await ctx.reply('No photo found in the message.');
+    }
+  }
 
   @On('text')
   async onText(@Ctx() ctx: MyContext) {
@@ -645,7 +645,8 @@ export class BotService {
     }
     if (test.type !== TestType.MULTIPLE_ANSWER) {
       setTimeout(async () => {
-        await ctx.reply(question, {
+        ctx.replyWithPhoto(test.photo, {
+          caption: question,
           parse_mode: 'HTML',
           reply_markup: {
             inline_keyboard: keyBoards,
@@ -654,10 +655,10 @@ export class BotService {
       }, time);
     } else {
       setTimeout(async () => {
-        await ctx.reply(
-          question + `\n\nJavoblarni 1,2,3,4 ko'rinishida yuboring`,
-          { parse_mode: 'HTML' },
-        );
+        await ctx.replyWithPhoto(test.photo, {
+          parse_mode: 'HTML',
+          caption: question + `\n\nJavoblarni 1,2,3,4 ko'rinishida yuboring`,
+        });
       }, time);
     }
   }
