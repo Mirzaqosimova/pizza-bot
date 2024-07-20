@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { UsersModule } from './users/users.module';
 import { BotModule } from './bot/bot.module';
-import { TestResultsModule } from './test-results/test-results.module';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { KnexModule } from 'nestjs-knex';
@@ -32,7 +31,6 @@ import { Middleware, session } from 'telegraf';
     }),
     UsersModule,
     BotModule,
-    TestResultsModule,
   ],
 })
 export class AppModule {}

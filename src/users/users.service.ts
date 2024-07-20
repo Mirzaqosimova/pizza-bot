@@ -15,14 +15,6 @@ export class UsersService {
     return `This action returns all users`;
   }
 
-  async findOne(bot_user_id: string) {
-    const hasUser = await this.usersRepository.findBy({ bot_user_id });
-    if (!hasUser) {
-      throw new NotFoundException('User not found');
-    }
-    return hasUser;
-  }
-
   update(id: number, updateUserDto: UpdateUserDto) {
     return `This action updates a #${id} user`;
   }
